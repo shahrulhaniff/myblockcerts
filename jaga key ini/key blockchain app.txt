@@ -1,0 +1,31 @@
+[1] UPDATE VERSION
+[2] ionic cordova build --release android
+[3] pastikan copy android-release-unsigned.apk kat luar kalau tak dia tak jumpa jar
+
+[4] SEMAK CONFIG SAMA ADA GUNA 4.a(asal) ATAU 4.b(baru) dan update 'CURRENT VERSION' dibawah
+
+[4.a] jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore cashless-release-key.keystore app-release-unsigned.apk releaseNewKey
+pass : cashless123  
+CURRENT VERSION : 0.1.17
+id : io.cashless.unisza
+
+[4.b] jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore blockchain-release-key.keystore app-release-unsigned.apk releaseNewKey
+pass : 040471       
+CURRENT VERSION :0.0.1 
+id : io.blockchain.unisza
+
+[4.c] jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore myblockcert-release-key.keystore app-release-unsigned.apk releaseNewKey
+pass : 040471       
+CURRENT VERSION :0.0.1 
+id : myblockcert.unisza.edu.my
+
+
+[5] C:/Users/shahrul/AppData/Local/Android/sdk/build-tools/26.0.2/zipalign -v 4 app-release-unsigned.apk myblockcerts.apk
+C:/Users/Amir Fitri/AppData/Local/Android/Sdk/build-tools/28.0.3/zipalign -v 4 app-release-unsigned.apk myblockcerts.apk
+
+
+
+
+
+
+android:usesCleartextTraffic="true"

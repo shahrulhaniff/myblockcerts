@@ -1,0 +1,143 @@
+<ion-header no-border>
+  <ion-navbar transparent no-border>
+      <button ion-button menuToggle>
+          <ion-icon name="menu" color="dark"></ion-icon>
+        </button>
+   <ion-title></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg">
+    <div padding>
+    
+    </div>
+  
+<!--<ion-card class="rounded" text-center>
+    <img src="assets/imgs/konvo.jpg"/>
+     <ion-icon name="ios-color-wand-outline" class="iconsize"></ion-icon> -- >
+  <div class="card-title" padding>
+   
+   <h1>Claim Notification</h1>
+</div>
+  <div class="card-subtitle">
+    <h2>You can claim your certificate here at: <br> <b>18 October 2019.</b></h2> <br>
+  </div> 
+</ion-card>-->
+
+<!-- Start Profile 
+<div padding *ngFor="let profile of profiles">-->
+<ion-card class="card3" >
+  <ion-list>
+    <ion-item class="header">
+      <ion-icon name="ios-contact"></ion-icon> &nbsp;MY CERTIFICATE
+    </ion-item>
+      <ion-item class="top_line" color="theme">
+          <!--<h1 text-wrap>{{profile.nama}}</h1> 
+          <h3>{{profile.email}}</h3>-->
+          <h1 text-wrap>{{fn}} {{ln}}</h1> 
+          <h3>{{usr}}</h3>
+      </ion-item>
+  </ion-list>
+</ion-card>
+<!-- End Profile -->
+<ion-card>
+  <ion-list>
+    <ion-item-sliding>
+      <ion-item>
+        <ion-row>
+          <ion-col text-wrap>
+            <h2 class="bold">{{certificationName}}</h2> 
+          </ion-col>
+        </ion-row>
+        
+        <button class="smallnone" *ngIf="isClaimed == false">Certificate Claim :</button>
+        <button class="smallr" *ngIf="isClaimed == false">No</button>
+        <button class="smallg" *ngIf="isClaimed == true">Yes</button>
+      </ion-item>
+      <ion-item *ngIf="isClaimed == false" (click)="claim()" class="top_lineB" color="card2">
+            <ion-icon name="md-list-box"></ion-icon> &nbsp; CLAIM
+        </ion-item>
+        <ion-item *ngIf="isClaimed == true" (click)="certInfo()" class="top_line1" color="card2">
+              <ion-icon name="md-list-box"></ion-icon> &nbsp; VIEW CERTIFICATE
+          </ion-item>
+
+        <ion-item-options side="right">
+          <button ion-button color="secondary">
+            <ion-icon name="locate"></ion-icon>
+            Locate
+          </button>
+          <button ion-button color="primary">
+              <ion-icon name="contract"></ion-icon>
+              UniSZA
+            </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-card>
+  <!--<ion-card>
+  <ion-list>
+    <ion-item-sliding>
+      <ion-item>
+        <ion-row>
+          <ion-col text-wrap>
+            <h2 class="bold">Ijazah Sarjana Muda Sains Komputer Pembangunan Perisian</h2>
+            <i><h3>2015-2019</h3></i>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item (click)="claim()" class="top_lineB" color="card2">
+            <ion-icon name="md-list-box"></ion-icon> &nbsp; CLAIM
+        </ion-item>
+
+        <ion-item-options side="right">
+          <button ion-button color="secondary">
+            <ion-icon name="locate"></ion-icon>
+            Locate
+          </button>
+          <button ion-button color="primary">
+              <ion-icon name="contract"></ion-icon>
+              UniSZA
+            </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+      <ion-list>
+        <ion-item-sliding>
+          <ion-item>
+                <ion-row>
+                  <ion-col>
+                    <h2 class="bold">Diploma Teknologi Maklumat</h2>
+                  </ion-col>
+                </ion-row>
+                <i><h3>2012-2014</h3></i>
+            </ion-item>
+            <ion-item (click)="claim()" class="top_line1">
+                  <ion-icon name="md-list-box"></ion-icon> &nbsp; View Certificate
+              </ion-item>
+            <ion-item-options side="right">
+              <button ion-button color="secondary">
+                <ion-icon name="locate"></ion-icon>
+                Locate
+              </button>
+              <button ion-button color="primary">
+                  <ion-icon name="contract"></ion-icon>
+                  UniSZA
+                </button>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </ion-card> -->
+<!--</div>
+
+<ion-card class="card4">
+    <ion-row text-center>
+        <ion-col (click)="claim()" align-center padding col-12><ion-icon name="ios-ribbon-outline" class="iconsize2" id="cart-btn"></ion-icon>
+          <ion-badge id="cart-badge">.</ion-badge>
+          <br>Claim Certificate!</ion-col>
+  </ion-row>
+</ion-card>-->
+
+</ion-content>

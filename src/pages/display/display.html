@@ -1,0 +1,133 @@
+<ion-header no-border>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" color="light"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg">
+  <ion-refresher slot="fixed"  class="inv" 
+  (ionRefresh)="ionRefresh($event)" 
+  (ionPull)="ionPull($event)" 
+  (ionStart)="ionStart($event)">
+    <ion-refresher-content 
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+    <div padding text-center>
+      <!--<div text-center>Selamat Datang <h5>{{namadata}}</h5> </div>-- >
+      <ion-chip no-padding >
+        <ion-label style="font-weight: bold" color="dark">
+         Hai , {{namadata}} !
+        </ion-label>
+      </ion-chip>-->
+        <div>
+          <ion-slides>
+            <ion-slide>
+              <ion-card class="card2">
+                <div>
+                  <img src="assets/imgs/card.png" (click)="slide()" />
+                </div>
+              </ion-card>
+            </ion-slide>   
+          </ion-slides>
+        </div>
+    
+      </div>
+
+      <div padding>
+          <ion-chip color="theme">
+            <ion-avatar item-start>
+              <ion-text-avatar>></ion-text-avatar>
+            </ion-avatar>
+            <ion-label class="bold">
+              Jenis Transaksi
+            </ion-label>
+          </ion-chip>
+
+
+  <ion-card class="card3" *ngFor="let type of types">
+      <ion-item color="white" (click)="gotoSenarai2(type.id_jenistransaksi)">
+        <!--<ion-row>
+            <!--<ion-col text-wrap col-3 class="inlist" >{{type.jenistransaksi}}</ion-col>-- >
+            <ion-col text-wrap class="inlist" *ngIf="type.jenistransaksi == 'D'">Derma</ion-col>
+            <ion-col text-wrap class="inlist" *ngIf="type.jenistransaksi == 'SYD'">Seminar / Yuran / Denda</ion-col>
+            <ion-col text-wrap class="inlist" *ngIf="type.jenistransaksi == 'SBT'">Sebut Harga / Tender</ion-col>  
+        </ion-row> -->
+        <ion-row>
+          <ion-col>
+              <!--<p>ID Transaksi : {{type.id_jenistransaksi}}</p> -->
+              <p class="ita" text-wrap>{{type.jabatan}}</p>
+              <!--<p *ngIf="type.jabatan == 'JPP'" class="ita">Jabatan Pengurusan Pembangunan</p>-->
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-card>
+<!--<ion-card>
+
+ <ion-toolbar>
+      <ion-segment [(ngModel)]="category" color="theme">
+      <ion-segment-button value="all">
+      Transaksi
+      </ion-segment-button>
+      <ion-segment-button value="in">
+      Masuk
+      </ion-segment-button>
+      <ion-segment-button value="out">
+      Keluar
+      </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar> -->
+
+
+    <!--<div [ngSwitch]="category">
+        <div *ngSwitchCase="'all'" ng-selected="selected">
+         
+            <! -- <ion-list *ngFor="let item of items | search : terms | sort: {property: column, order: order}"> -->
+               <!--  <ion-list *ngFor="let item of items">
+            <ion-card class="card2">
+              <! --<ion-card class="card2" (click)="viewEntry({ record: item })">-- >
+              
+                <ion-item text-wrap>
+                  <ion-row>
+                    <ion-col>{{(item.tarikh)?.substring(8,10)}}/{{(item.tarikh)?.substring(5,7)}}/{{(item.tarikh)?.substring(0,4)}}</ion-col>
+                    <ion-col text-right>
+                        <button class="small"> RM {{(item.jumlah)?.toFixed(2)}}</button><br>
+                        Status Dokumen:<button class="small2">{{item.status_dokumen}}</button>
+                  </ion-col>
+                </ion-row>
+                   <! -- <ion-row>
+                  <ion-col col-2>
+                    <text-avatar item-start [text]="item.daripada" [color]="item.color" item-left></text-avatar>
+                  </ion-col>
+                  <ion-col col-1>
+                    <ion-icon name="arrow-round-forward" style="zoom:1.0; color: rgb(66, 21, 46)"></ion-icon>
+                  </ion-col>
+                  <ion-col col-2>
+                    <text-avatar [text]="item.kepada" [color]="item.color" item-left></text-avatar>
+                </ion-col>
+                <ion-col col-6>
+                    Transfered to {{item.kepada}}
+                   
+                  </ion-col>
+                </ion-row> -- >
+                  </ion-item>
+            </ion-card>
+            </ion-list> -->
+         <!-- </div>
+        <div *ngSwitchCase="'in'" ng-selected="selected">Money In php select query in progress</div>
+        <div *ngSwitchCase="'out'" ng-selected="selected">Money Out php select query in progress</div>
+    </div>
+</ion-card>-->
+</div>
+
+<ion-fab bottom right style="zoom:1.4;" (click)="scanToPay()">
+    <button ion-fab mini>
+      <ion-icon name="qr-scanner"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

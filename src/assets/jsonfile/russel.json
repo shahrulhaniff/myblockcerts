@@ -1,0 +1,403 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ICert",
+		"_postman_id": "5b180e75-e8af-9d3d-748e-0abd5b1c5e78",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Recipient",
+			"description": "",
+			"item": [
+				{
+					"name": "Share Certificate",
+					"request": {
+						"url": "http://54.255.244.173:4400/api/v1/contract/certificate/share",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							},
+							{
+								"key": "authorization",
+								"value": "d1f66e20-d704-11e9-af34-8d140ad15795",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "emails[]",
+									"value": "zejavahy@getnada.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "certificateId",
+									"value": "5d7ceb4022dec23245adb4a2",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "issuedBy",
+									"value": "5d7c76b622dec23245adb47f",
+									"description": "This is the issuer id, for this you have to run 'Get Certificate Info' (pass certificate id to this api).",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Certificate Claim",
+					"request": {
+						"url": "http://54.255.244.173:4400/api/v1/contract/claim/certificate",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "d1f66e20-d704-11e9-af34-8d140ad15795",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "fileId",
+									"value": "5d7d08dc22dec23245adba2d",
+									"description": "This is the Certificate file id, for this you have to run 'Get Certificate Info' (pass certificate id to this api).",
+									"type": "text"
+								},
+								{
+									"key": "issuerAddress",
+									"value": "0xb5231f6151A0410EC4EcB554c70DF9Bf80fE47E4",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "privateKey",
+									"value": "0xa5e2f88cb33eb43c8acfc94b8a144b3a4db5aba4ce682106d1a2bc65a5e9fde9",
+									"description": "This is recipient Private key",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Certificate Info",
+					"request": {
+						"url": {
+							"raw": "http://54.255.244.173:4400/api/v1/certificates/info?certificateId=5d7d08d922dec23245adba28",
+							"protocol": "http",
+							"host": [
+								"54",
+								"255",
+								"244",
+								"173"
+							],
+							"port": "4400",
+							"path": [
+								"api",
+								"v1",
+								"certificates",
+								"info"
+							],
+							"query": [
+								{
+									"key": "certificateId",
+									"value": "5d7d08d922dec23245adba28",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Verifier",
+			"description": "",
+			"item": [
+				{
+					"name": "Certificate Verification Request",
+					"request": {
+						"url": "http://54.255.244.173:4400/api/v1/verification/requests",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "276f2560-d703-11e9-af34-8d140ad15795",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "certificateId",
+									"value": "5d7ceb4022dec23245adb4a2",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "message",
+									"value": "verify this request",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"url": "http://54.255.244.173:4400/api/v1/users/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Conent-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "5ca1d450-d6f2-11e9-af34-8d140ad15795",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "xeno@getnada.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "vishal@123",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Register-Recipient",
+			"request": {
+				"url": "http://54.255.244.173:4400/api/v1/users",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "accountType",
+							"value": "ROLE_RECIPIENT",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "checked",
+							"value": "true",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "xeno@getnada.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "firstName",
+							"value": "xeno",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "xn",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "mobileNumber",
+							"value": "7219723495",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "vishal@123",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "confirmPassword",
+							"value": "vishal@123",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "personalAddress",
+							"value": "nashik",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Register-Verifier",
+			"request": {
+				"url": "http://54.255.244.173:4400/api/v1/users",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "accountType",
+							"value": "ROLE_VERIFIER",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "checked",
+							"value": "true",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "zejavahy@getnada.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "firstName",
+							"value": "zejava",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "hy",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "mobileNumber",
+							"value": "7219723495",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "vishal@123",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "confirmPassword",
+							"value": "vishal@123",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "personalAddress",
+							"value": "123456",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "companyName",
+							"value": "test",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "companyAddress",
+							"value": "test add",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "designation",
+							"value": "developer",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "officeMobileNumber",
+							"value": "7219723495",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

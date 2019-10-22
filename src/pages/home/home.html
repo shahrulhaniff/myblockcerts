@@ -1,0 +1,23 @@
+<ion-header no-border>
+  <ion-navbar  transparent no-border>
+     <!-- <button ion-button menuToggle>
+          <ion-icon name="menu" color="dark"></ion-icon>
+        </button> -->
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg">
+  
+<img src="../assets/imgs/ico250.png" height="150vw" class="mylogo"/>
+  <div class="card-center">
+  <ion-card class="card3">
+    <ion-row text-center justify-content-center align-items-center style="height: 100%">
+      <ion-col class="border2" (click)="scan()" align-center padding col-6><ion-icon name="ios-camera-outline" class="iconsize"></ion-icon><br>QR-Scanner</ion-col>
+      <ion-col class="border2" (click)="login()" align-center padding col-6><ion-icon name="ios-contact" class="iconsize"></ion-icon><br>User Login</ion-col>
+      <ion-col class="border2" (click)="login()" align-center padding col-6><ion-icon name="ios-call" class="iconsize"></ion-icon><br>Contact Us</ion-col>
+      <ion-col class="border2" (click)="login()" align-center padding col-6><ion-icon name="ios-phone-portrait-outline" class="iconsize"></ion-icon><br>About App</ion-col>
+  </ion-row>
+</ion-card>
+</div>
+
+</ion-content>

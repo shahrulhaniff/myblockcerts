@@ -1,0 +1,36 @@
+
+.bg4{
+ 
+  background: url("../assets/imgs/header_menu.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+  ion-header ion-icon.back-button-icon.icon {
+    color: map-get($colors, dark);}
+
+  ion-header ion-navbar ion-icon.menuToggle-icon.icon {
+    color: map-get($colors, dark);
+}
+
+.menu-inner{
+  background-color: transparent !important;
+  background-color: rgba(32, 32, 32, 0);
+}
+
+.trans{
+  background-color: transparent;
+  border-color: rgba(0, 0, 0, 0);
+	background-color: rgba(0, 0, 0, 0);
+	color: white; 
+}
+
+.bottom{
+  background-color: #dad8d8; 
+  border-top: 1px solid rgb(0, 10, 26);
+}
+
+$bar-stable-text: #222;
+
+@import '../theme/fonts';
+
