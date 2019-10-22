@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, App } from 'ionic-angular';
 import { StartPage } from '../start/start';
-
+import { DocumentViewer, DocumentViewerOptions } from '@ionic-native/document-viewer';
 @IonicPage()
 @Component({
   selector: 'page-pfdmodal',
@@ -14,8 +14,14 @@ export class PfdmodalPage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public viewCtrl: ViewController,
-              public appCtrl: App) {
-  }
+              public appCtrl: App
+              ,private document: DocumentViewer
+              ) { 
+                const options: DocumentViewerOptions = {
+                  title: 'My PDF'
+                }
+                this.document.viewDocument('../../assets/documents/cert.pdf', 'application/pdf', options);
+              }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PfdmodalPage');
@@ -32,5 +38,9 @@ export class PfdmodalPage {
     this.appCtrl.getRootNav().setRoot(StartPage);
   });
   }
+
+  
+  
+  
 
 }

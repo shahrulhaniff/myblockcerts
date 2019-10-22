@@ -11,7 +11,6 @@ import { PenafianPage } from '../pages/penafian/penafian';
 import { StartPage } from '../pages/start/start';
 import { LoginPage } from '../pages/login/login';
 import { PrivatekeyPage } from '../pages/privatekey/privatekey';
-import { MycertPage } from '../pages/mycert/mycert';
 
 @Component({
   templateUrl: 'app.html'

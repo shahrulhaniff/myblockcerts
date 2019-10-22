@@ -35,10 +35,11 @@ import { FileOpener } from '@ionic-native/file-opener/ngx';
 import {  FileTransfer,  FileTransferObject  } from '@ionic-native/file-transfer';
 import { Clipboard } from '@ionic-native/clipboard';
 import { PfdmodalPage } from '../pages/pfdmodal/pfdmodal';
-//import { PdfViewerPage } from '../pages/pdf-viewer/pdf-viewer';
-import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { Camera } from '@ionic-native/camera';
 //import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
-//import { DocumentViewer } from '@ionic-native/document-viewer/ngx';
+//import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { DocumentViewer } from '@ionic-native/document-viewer';
+//import {FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -69,9 +70,9 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     HttpClientModule,
     IonicStorageModule.forRoot(),
     NgxQRCodeModule
-    //,DocumentViewer
     //,PdfJsViewerModule
-    ,PdfViewerModule
+    //,DocumentViewer
+    //,PdfViewerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -102,7 +103,9 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     FileOpener,
     FileTransfer,  
     FileTransferObject,
-    Clipboard
+    Clipboard,
+    Camera
+    ,DocumentViewer
     
 
   ]
