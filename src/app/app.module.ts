@@ -58,7 +58,6 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     MycertPage,
     PenafianPage,
     PrivatekeyPage,
-    //PdfViewerPage,
     PfdmodalPage,
     ParallaxHeader
     
@@ -88,8 +87,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     MycertPage,
     PenafianPage,
     PrivatekeyPage,
-    PfdmodalPage,
-    //PdfViewerPage
+    PfdmodalPage
     
   ],
   providers: [

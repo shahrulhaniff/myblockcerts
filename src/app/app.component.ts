@@ -43,7 +43,7 @@ export class MyApp {
     this.storage.get('user').then((user) => {
       this.namadata=user;
       this.user = user; console.log("data kat dalam app.co-->"+this.user);
-      if(this.user==null) { this.rootPage = MycertPage; }// Bhavana onana LoginPage
+      if(this.user==null) { this.rootPage = LoginPage; }
       else {this.rootPage=StartPage; }
     });//close storage
 
