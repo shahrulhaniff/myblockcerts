@@ -1,0 +1,43 @@
+<ion-header no-border>
+  <ion-navbar  transparent no-border>
+      <button ion-button menuToggle>
+          <ion-icon name="menu" color="dark"></ion-icon>
+        </button>
+        <ion-title></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg">
+  <div padding>
+
+  </div>
+
+<ion-card class="card3">
+<!--<ion-item class="header">
+  <ion-icon name="key"></ion-icon> &nbsp;BLOCKCHAIN INFO
+</ion-item> -->
+  <ion-item class="top_line" color="theme">
+     <ion-icon item-start name="ios-school"></ion-icon>
+      <h1 text-wrap>Centre for Management of Academic Excellence and Internationalization</h1>
+      <i text-wrap>Pusat Pengurusan Kecemerlangan Akademik & Pengantarabangsaan</i>
+  </ion-item>
+
+  <ion-item (click)="download('sample.pdf','https://abcd.sharepoint.com/samplesite/Shared Documents/sample.pdf')" class="top_lineB" color="card2">
+    <ion-icon name="md-download"></ion-icon> &nbsp; DOWNLOAD PRIVATE KEY GUNA FILE
+</ion-item>
+
+<ion-item (click)="getPrivateKey()" class="top_lineB" color="card2">
+      <ion-icon name="md-download"></ion-icon> &nbsp; DOWNLOAD PRIVATE KEY GUNA COPY JE
+  </ion-item>
+</ion-card>
+
+<ion-card *ngIf="isEdited" >
+  <ion-item>
+<ion-textarea rows="3" value="{{myprivatekey}}"></ion-textarea>
+  </ion-item>
+  <ion-item (click)="copy()" class="top_lineB" color="card2">
+        <ion-icon name="md-copy"></ion-icon> &nbsp; COPY
+    </ion-item>
+</ion-card>
+
+</ion-content>

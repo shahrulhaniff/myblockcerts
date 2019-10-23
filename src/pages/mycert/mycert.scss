@@ -1,0 +1,129 @@
+page-mycert {
+
+  
+    ion-title {
+      line-height: 10px;
+      padding-left: 35px;
+    }
+    .bg{
+      background: url("../assets/imgs/Bg1.png") no-repeat center center fixed;
+      background-repeat: no-repeat;
+       background-size: cover;
+       display: block;
+       margin-left: auto;
+       margin-right: auto
+    }
+
+    .inv{
+      color: white;
+      
+    }
+    .has-refresher>.scroll-content {
+      border-top: 0;
+  
+      .inlist{
+        font-weight: bold;
+        color:#000000;
+        font-family: 'Open Sans' , sans-serif;
+        
+      }
+      .header-image {
+        background-image: url("../assets/imgs/Bg1.png");
+        height: 40vh;
+    }
+    
+    .main-content {
+        padding: 20px;
+        background-color: white;
+    }
+  
+  
+  .bg{
+   
+    background: url("../assets/imgs/Bg1.png") no-repeat center center fixed;
+    background-repeat: no-repeat;
+     background-size: cover;
+     display: block;
+     margin-left: auto;
+     margin-right: auto
+  }
+  
+  
+  .bold{
+    font-weight: bold;
+    color:#000000;
+    }
+  }
+  
+  
+  .card2 {
+    border-radius: 7px;
+      margin-top: 8px;
+      width: 100% !important;
+      margin-left:0 !important;
+      margin-right:0 !important;
+     
+  }
+  
+  .trans{
+    background-color: transparent;
+  }
+  
+  .but{
+    box-shadow:none;
+  }
+  
+  .pad{
+    background: transparent;
+    margin-left: 5px !important;
+  }
+  
+  .color{
+    color: white;
+  }
+  
+  .card3{
+    border-radius: 7px;
+    background-color: transparent;
+    font-family: 'Open Sans' , sans-serif;
+  }
+  
+  .ita{
+    font-style: italic;
+    //font-weight: bold;
+    color:#000000;
+  }
+  
+  .inner{
+    widows: 2000px;
+    height: 100%px;
+    ion-card{
+      display : table-cell;
+      
+    }
+  }
+  
+  .ion-scroll {
+    white-space: nowrap;
+    height: 150px;
+  }
+  
+  
+  .myCard{
+  position:relative;
+  border-radius: 7px;
+  
+  }
+  
+  .myOverlay{
+   width: auto;
+    height: 60px;
+    position: absolute;
+    z-index: 99;
+    bottom: 0px;
+    opacity: 0.5;
+    
+    color: #000000;
+  
+  }
+  }

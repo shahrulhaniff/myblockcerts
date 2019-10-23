@@ -1,0 +1,382 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ICert",
+		"_postman_id": "26db91ef-622f-07ee-f4b2-9548dc21b1e8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Recipient",
+			"description": "",
+			"item": [
+				{
+					"name": "Share Certificate",
+					"request": {
+						"url": "http://18.136.211.207:4400/api/v1/contract/certificate/share",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							},
+							{
+								"key": "authorization",
+								"value": "d99515b0-eb53-11e9-aafb-85ec375d14e5",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "emails[]",
+									"value": "jozi@getnada.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "certificateId",
+									"value": "5d97a03ba090a6358c83d391",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "issuedBy",
+									"value": "5d95de11c66fd97ed272856d",
+									"description": "This is the issuer id, for this you have to run 'Get Certificate Info' (pass certificate id to this api).",
+									"type": "text"
+								},
+								{
+									"key": "emails[]",
+									"value": "test_verifier1@appmail.top",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "emails[]",
+									"value": "bhavana.imperialsoftech@gmail.com",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": "Login with recipient, take token from logged in user recipient and add in authorization header. Only recipient can share the certificate."
+					},
+					"response": []
+				},
+				{
+					"name": "Certificate Claim",
+					"request": {
+						"url": "http://18.136.211.207:4400/api/v1/contract/claim/certificate",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "edfb0780-eb30-11e9-aafb-85ec375d14e5",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "fileId",
+									"value": "5d9edbeda2ed6b40a48fb9fb",
+									"description": "This is the Certificate file id, for this you have to run 'Get Certificate Info' (pass certificate id to this api).",
+									"type": "text"
+								},
+								{
+									"key": "issuerAddress",
+									"value": "0x2B89FF160473eA5c86b92b619A89bf5d193bCF0c",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "privateKey",
+									"value": "0x0930aa97c3cd12f499510e400decd1c17256756ca7433f3f897d09654ffed9a9",
+									"description": "This is recipient Private key",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Certificate Info",
+					"request": {
+						"url": {
+							"raw": "http://18.136.211.207:4400/api/v1/certificates/info?certificateId=5d97a03ba090a6358c83d391",
+							"protocol": "http",
+							"host": [
+								"18",
+								"136",
+								"211",
+								"207"
+							],
+							"port": "4400",
+							"path": [
+								"api",
+								"v1",
+								"certificates",
+								"info"
+							],
+							"query": [
+								{
+									"key": "certificateId",
+									"value": "5d97a03ba090a6358c83d391",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Certificate Listing",
+					"request": {
+						"url": "http://18.136.211.207:4400/api/v1/certificates",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "1d330280-ec28-11e9-b06b-bd3bcdaff28a",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Verifier",
+			"description": "",
+			"item": [
+				{
+					"name": "Certificate Verification Request",
+					"request": {
+						"url": "http://18.136.211.207:4400/api/v1/verification/requests",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "a00a2370-eb54-11e9-aafb-85ec375d14e5",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "certificateId",
+									"value": "5d97a03ba090a6358c83d391",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "message",
+									"value": "Please check verification request",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": "Login with verifier, take token from logged in user verifier and add in authorization header. Only verifier can perform this action. Verification request send to issuer, issuer can check in application and also issuer will get verification request email."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"url": "http://18.136.211.207:4400/api/v1/users/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Conent-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "bc717320-eb30-11e9-aafb-85ec375d14e5",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "superadmin@gmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Password@123",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Register-Verifier",
+			"request": {
+				"url": "http://18.136.211.207:4400/api/v1/users",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "accountType",
+							"value": "ROLE_VERIFIER",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "checked",
+							"value": "true",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "jozi@getnada.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "firstName",
+							"value": "Jozi",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Verifier",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "mobileNumber",
+							"value": "1234567890",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "vishal@123",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "confirmPassword",
+							"value": "vishal@123",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "personalAddress",
+							"value": "Indira Nagar, Nashik",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "companyName",
+							"value": "test",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "companyAddress",
+							"value": "test add",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "designation",
+							"value": "developer",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "officeMobileNumber",
+							"value": "7219723495",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "accountID",
+							"value": "5d89ba9f948b90361d5fa4b5",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Private Key",
+			"request": {
+				"url": "http://18.136.211.207:4400/api/v1/users/priv/key",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "5c4e96d0-f0b2-11e9-a3e7-73c2188f3bad",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

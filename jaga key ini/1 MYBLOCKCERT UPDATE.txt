@@ -11,9 +11,3 @@ CURRENT VERSION :0.0.1
 id : myblockcert.unisza.edu.my
 
 [5] C:/Users/shahrul/AppData/Local/Android/sdk/build-tools/26.0.2/zipalign -v 4 app-release-unsigned.apk myblockcerts.apk
-
-
-app.module.tools
-pdfmodal.ts / .html
-
-semak ng2 pdf
