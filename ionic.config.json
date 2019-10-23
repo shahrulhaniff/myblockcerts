@@ -1,7 +1,0 @@
-{
-  "name": "mywalist",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "ionic-angular"
-}
