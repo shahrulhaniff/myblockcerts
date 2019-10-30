@@ -48,12 +48,13 @@ export class MycertPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MycertPage');
     this.ccheckc();
-    this.getView();
+    //this.getView();
   }
 
   ccheckc(){
     this.storage.get('isClaimed').then((isClaimed) => {
       this.isClaimed = isClaimed;
+      if(isClaimed==true){this.getView();}
     });//close storage
   }
   cancel(){

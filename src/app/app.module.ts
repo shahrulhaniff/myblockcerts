@@ -29,16 +29,16 @@ import { MycertPage } from '../pages/mycert/mycert';
 import { PenafianPage } from '../pages/penafian/penafian';
 import { StartPage } from '../pages/start/start';
 import { PrivatekeyPage } from '../pages/privatekey/privatekey';
+import { PfdmodalPage } from '../pages/pfdmodal/pfdmodal';
 
 import { File } from '@ionic-native/file/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
 import {  FileTransfer,  FileTransferObject  } from '@ionic-native/file-transfer';
-import { Clipboard } from '@ionic-native/clipboard';
-import { PfdmodalPage } from '../pages/pfdmodal/pfdmodal';
+//import { Clipboard } from '@ionic-native/clipboard';
 //import { PdfViewerPage } from '../pages/pdf-viewer/pdf-viewer';
 //import { PdfViewerModule } from 'ng2-pdf-viewer';
 //import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
-import { DocumentViewer } from '@ionic-native/document-viewer';
+//import { DocumentViewer } from '@ionic-native/document-viewer';
 
 @NgModule({
   declarations: [
@@ -102,9 +102,9 @@ import { DocumentViewer } from '@ionic-native/document-viewer';
     File,
     FileOpener,
     FileTransfer,  
-    FileTransferObject,
-    Clipboard
-    ,DocumentViewer
+    FileTransferObject
+    //,Clipboard
+    //,DocumentViewer
     
 
   ]

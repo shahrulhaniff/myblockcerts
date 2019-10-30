@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import {  FileTransfer,  FileTransferObject  } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file/ngx';
-import { Clipboard } from '@ionic-native/clipboard';
+//import { Clipboard } from '@ionic-native/clipboard';
 
 
 @IonicPage()
@@ -22,8 +22,8 @@ export class PrivatekeyPage {
               public navParams: NavParams, 
               private storage: Storage,
               private transfer: FileTransfer, 
-              private file: File,
-              public clipboard: Clipboard
+              private file: File
+              //,public clipboard: Clipboard
               ) {}
 
   public download(fileName, filePath) {  
@@ -53,11 +53,12 @@ export class PrivatekeyPage {
   });//close storage
   this.isEdited      = true;
   }
+  /*
   copy2(){
     this.storage.get('privateKey').then((privateKey) => {
       this.myprivatekey = privateKey;
       this.clipboard.copy(this.myprivatekey);
-  });//close storage */
+  });//close storage 
   }
 
   copy(){
@@ -65,7 +66,10 @@ export class PrivatekeyPage {
       console.log("CLIPBOARD",rs);
     }).catch(error => {
       console.log("CLIPBOARD",error);
-    })
+    }) 
+  }*/
+  copy(){
+    
   }
 
 }
