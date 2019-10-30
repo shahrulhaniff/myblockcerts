@@ -100,6 +100,7 @@ export class StartPage {
            this.storage.set('certificateId', _id);
            this.storage.set('fileId'       , fileId);
            this.storage.set('issuerAddress', ethAddress);
+           this.storage.set('cname', cname);
            //this.storage.set('privateKeyISSUER'   , privateKey);
 
            console.log("DAPAT DOH [Authorization]a.k.a[TOKEN]"   ,tokenz);

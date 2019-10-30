@@ -33,12 +33,12 @@ import { PfdmodalPage } from '../pages/pfdmodal/pfdmodal';
 
 import { File } from '@ionic-native/file/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
-import {  FileTransfer,  FileTransferObject  } from '@ionic-native/file-transfer';
+//import {  FileTransfer,  FileTransferObject  } from '@ionic-native/file-transfer';
 //import { Clipboard } from '@ionic-native/clipboard';
 //import { PdfViewerPage } from '../pages/pdf-viewer/pdf-viewer';
 //import { PdfViewerModule } from 'ng2-pdf-viewer';
 //import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
-//import { DocumentViewer } from '@ionic-native/document-viewer';
+import { DocumentViewer } from '@ionic-native/document-viewer';
 
 @NgModule({
   declarations: [
@@ -100,11 +100,11 @@ import {  FileTransfer,  FileTransferObject  } from '@ionic-native/file-transfer
     GlobalProvider,
     InAppBrowser,
     File,
-    FileOpener,
-    FileTransfer,  
-    FileTransferObject
+    FileOpener
+    //,FileTransfer  
+    //,FileTransferObject
     //,Clipboard
-    //,DocumentViewer
+    ,DocumentViewer
     
 
   ]

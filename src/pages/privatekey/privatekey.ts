@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import {  FileTransfer,  FileTransferObject  } from '@ionic-native/file-transfer';
+//import {  FileTransfer,  FileTransferObject  } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file/ngx';
+import { MycertPage } from '../mycert/mycert';
 //import { Clipboard } from '@ionic-native/clipboard';
 
 
@@ -14,19 +15,40 @@ import { File } from '@ionic-native/file/ngx';
 export class PrivatekeyPage {
   
   //here creating object to access file transfer object.  
-  private fileTransfer: FileTransferObject; 
+  //private fileTransfer: FileTransferObject; 
   public isEdited     : boolean = false;
   public myprivatekey     : any;
+  public cname     : any;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
-              private storage: Storage,
-              private transfer: FileTransfer, 
-              private file: File
+              private storage: Storage
+              //,private file: File
+              //,private transfer: FileTransfer 
               //,public clipboard: Clipboard
               ) {}
 
-  public download(fileName, filePath) {  
+  ionViewDidLoad() {
+    this.loadcname();
+    console.log('ionViewDidLoad PrivatekeyPage');
+  }
+
+  getPrivateKey(){
+    this.storage.get('privateKey').then((privateKey) => {
+    this.myprivatekey = privateKey;
+  });//close storage
+  this.isEdited      = true;
+  }
+
+  
+  loadcname(){  
+    this.storage.get('cname').then((cname) => {this.cname = cname;});//close storage 
+  }
+  copy(params : any){
+      this.navCtrl.push(MycertPage, params);
+      console.log('params to paste',params);
+  }
+  /*public download(fileName, filePath) {
     //here encoding path as encodeURI() format.  
     let url = encodeURI(filePath);  
     //here initializing object.  
@@ -39,20 +61,7 @@ export class PrivatekeyPage {
         //here logging our error its easier to find out what type of error occured.  
         console.log('download failed: ' + error);  
     });  
-  } 
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PrivatekeyPage');
-    //this.download("sample.pdf","https://abcd.sharepoint.com/samplesite/Shared Documents/sample.pdf");
-    
-  }
-
-  getPrivateKey(){
-    this.storage.get('privateKey').then((privateKey) => {
-    this.myprivatekey = privateKey;
-  });//close storage
-  this.isEdited      = true;
-  }
+  } */
   /*
   copy2(){
     this.storage.get('privateKey').then((privateKey) => {
@@ -68,8 +77,5 @@ export class PrivatekeyPage {
       console.log("CLIPBOARD",error);
     }) 
   }*/
-  copy(){
-    
-  }
-
+  
 }

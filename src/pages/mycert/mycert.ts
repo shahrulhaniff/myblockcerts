@@ -25,6 +25,9 @@ export class MycertPage {
   public items    : Array<any> = [];
   public cid    : any;
   public fid    : any;
+  public pk_value    : any;
+  public buttonClaim: boolean;
+  public buttonPaste: boolean = false;
 
   loading: Loading;
   createSuccess = false;
@@ -48,6 +51,7 @@ export class MycertPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MycertPage');
     this.ccheckc();
+    this.loadparams();
     //this.getView();
   }
 
@@ -60,7 +64,20 @@ export class MycertPage {
   cancel(){
     this.navCtrl.setRoot(StartPage);
   }
+  paste(){
+    this.buttonPaste = false;
+    this.buttonClaim = true;
+    this.pk_value = this.navParams.get("record");
+    //this.navCtrl.setRoot(StartPage);
+  }
 
+  loadparams(){
+    if (this.navParams.get("record")) {
+      //this.selectEntry(this.navParams.get("record"));
+      this.buttonPaste = true;
+      console.log('Data dari navparam min: ', this.navParams.get("record"));
+    }
+  }
 
   //showloading
   showLoading() {

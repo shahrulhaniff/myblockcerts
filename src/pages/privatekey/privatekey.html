@@ -18,8 +18,8 @@
 </ion-item> -->
   <ion-item class="top_line" color="theme">
      <ion-icon item-start name="ios-school"></ion-icon>
-      <h1 text-wrap>Centre for Management of Academic Excellence and Internationalization</h1>
-      <i text-wrap>Pusat Pengurusan Kecemerlangan Akademik & Pengantarabangsaan</i>
+      <h1 text-wrap>{{cname}} </h1>
+      <i text-wrap>Copy your private key for this certificate</i>
   </ion-item>
 
   <!--<ion-item (click)="download('sample.pdf','https://abcd.sharepoint.com/samplesite/Shared Documents/sample.pdf')" class="top_lineB" color="card2">
@@ -35,7 +35,7 @@
   <ion-item>
 <ion-textarea rows="3" value="{{myprivatekey}}"></ion-textarea>
   </ion-item>
-  <ion-item (click)="copy()" class="top_lineB" color="card2">
+  <ion-item (click)="copy({record:myprivatekey})" class="top_lineB" color="card2">
         <ion-icon name="md-copy"></ion-icon> &nbsp; COPY
     </ion-item>
 </ion-card>

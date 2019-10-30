@@ -28,7 +28,7 @@
         <ion-col>
           <ion-list inset>
             <ion-item>
-              <ion-input type="text" placeholder="Paste your private key here" formControlName="pk" required></ion-input>
+              <ion-input type="text" placeholder="Paste your private key here" formControlName="pk" value="{{pk_value}}" required></ion-input>
             </ion-item>
           </ion-list>
         </ion-col>
@@ -36,10 +36,11 @@
       
       <ion-row>
           <ion-col class="signup-col">
-            <button ion-button class="submit-btn" full type="submit" [disabled]="!loginForm.form.valid">CLAIM</button><br>
+            <button *ngIf="buttonClaim==true" ion-button class="submit-btn" full type="submit" [disabled]="!loginForm.form.valid">CLAIM</button>
           </ion-col>
       </ion-row>
     </form>  
+    <button *ngIf="buttonPaste==true" (click)="paste()" ion-button full>PASTE</button>
 </div>
 
 </ion-content>
