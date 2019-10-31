@@ -8,6 +8,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable } from "./../../../node_modules/rxjs/Observable";
 import { Modal, ModalController } from 'ionic-angular';
 import { PfdmodalPage } from '../pfdmodal/pfdmodal';
+import { PrivatekeyPage } from '../privatekey/privatekey';
 //import { PdfViewerPage } from '../pdf-viewer/pdf-viewer';
 
 
@@ -26,7 +27,7 @@ export class MycertPage {
   public cid    : any;
   public fid    : any;
   public pk_value    : any;
-  public buttonClaim: boolean;
+  public buttonClaim: boolean = false;
   public buttonPaste: boolean = false;
 
   loading: Loading;
@@ -53,6 +54,8 @@ export class MycertPage {
     this.ccheckc();
     this.loadparams();
     //this.getView();
+    console.log("RISHAM",this.buttonClaim);
+    console.log("RISHAM2",this.buttonPaste);
   }
 
   ccheckc(){
@@ -63,6 +66,9 @@ export class MycertPage {
   }
   cancel(){
     this.navCtrl.setRoot(StartPage);
+  }
+  gotopk(){
+    this.navCtrl.setRoot(PrivatekeyPage);
   }
   paste(){
     this.buttonPaste = false;

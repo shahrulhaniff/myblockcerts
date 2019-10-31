@@ -22,7 +22,9 @@
 
 <div padding>
 </div>
-<div *ngIf="isClaimed==false" padding>
+<ion-card class="card3">
+<div *ngIf="isClaimed==false">
+<ion-item>
 <form [formGroup]="form" (ngSubmit)="popup()" #loginForm="ngForm">
       <ion-row>
         <ion-col>
@@ -40,7 +42,22 @@
           </ion-col>
       </ion-row>
     </form>  
-    <button *ngIf="buttonPaste==true" (click)="paste()" ion-button full>PASTE</button>
-</div>
+    <!--<button *ngIf="buttonPaste==true" (click)="paste()" ion-button full>PASTE</button>
+    <button *ngIf="((buttonPaste==false)&&(buttonClaim==false))" (click)="gotopk()" ion-button full>GET PRIVATE KEY</button>
+    -->
+  </ion-item>
+  
+    <ion-item *ngIf="buttonPaste==true" (click)="paste()" class="top_line1" color="card2">
+      <ion-icon name="md-list-box"></ion-icon> &nbsp;PASTE
+    </ion-item>
+    <ion-item *ngIf="((buttonPaste==false)&&(buttonClaim==false))" (click)="gotopk()" class="top_line1" color="card2">
+      <ion-icon name="md-list-box"></ion-icon> &nbsp; GET PRIVATE KEY
+    </ion-item>
+    <!--
+    <ion-item (click)="certInfo()" class="top_line1" color="card2">
+        <ion-icon name="md-list-box"></ion-icon> &nbsp; VIEW CERTIFICATE
+    </ion-item>-->
 
+</div>
+</ion-card>
 </ion-content>
