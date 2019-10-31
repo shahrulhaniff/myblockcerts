@@ -80,7 +80,7 @@ export class StartPage {
     this.http.get(url, options)
         .subscribe((data : any) => 
         {
-          //console.log("MAKLUMAT:",data);
+          console.log("MAKLUMAT:",data);
           this.items = data;
 
            let res1 = data["data"];
@@ -90,7 +90,7 @@ export class StartPage {
            let res5 = res3["fileId"];
            //console.log("RES",res5[0]);
            
-           let fileId        = res5[0];
+           let fileId        = res5[1];
            //let issueraddress = res3["accountID"];
            let privateKey    = res4["privateKey"];
            let ethAddress    = res4["ethAddress"];

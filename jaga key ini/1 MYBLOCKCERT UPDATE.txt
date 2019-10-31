@@ -1,4 +1,8 @@
-[1] UPDATE VERSION
+[1] UPDATE VERSION 
+{
+current apple : 1.0.2 
+current android : 0.0.1
+}
 
 [2] ionic cordova build --release android
 

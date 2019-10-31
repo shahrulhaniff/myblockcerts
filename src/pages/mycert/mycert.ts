@@ -177,7 +177,7 @@ export class MycertPage {
         this.http.get(url, options)
             .subscribe((data : any) => 
             {
-              console.log("MAKLUMAT MYCERTPAGE:",data);
+              console.log("MAKLUMAT TO FORM SUBMIT:",data);
               this.items = data;
               let res1 = data["data"];
               let res2 = res1["data"];
