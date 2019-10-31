@@ -58,14 +58,15 @@ export class LoginPage {
 
 
  login() {
+ // this.http.setSSLCertMode('nocheck');
   let usr     : string    = this.form.controls["username"].value,
       pwd     : string    = this.form.controls["password"].value;
 
   let url       : any = this.baseURI+'api/v1/users/login',
       body 	    : any	= {'email': usr, 'password': pwd},
-      headers 	: any	= new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' }),
+      //headers 	: any	= new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' }),
       data      : Observable<any> = this.http.get(url);
-  this.http.post(url, body, headers)
+  this.http.post(url, body)
       .subscribe((data : any) => 
       {
         console.log(data);
