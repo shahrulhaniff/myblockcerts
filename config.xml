@@ -111,4 +111,5 @@
     <plugin name="cordova-plugin-file-transfer" spec="^1.7.1" />
     <engine name="android" spec="7.1.4" />
     <engine name="ios" spec="5.0.1" />
+    <allow-navigation href="http://localhost:8100" sessionid="a3204fbe" />
 </widget>

@@ -86,7 +86,9 @@ export class LoginPage {
       error => {
         console.log("Error!");
         console.log(error);
-        this.showPopup("Login error",error);
+        console.log(error["error"].message);
+        let error_string = "status: "+ error["error"].status + " message: " + error["error"].message + " data: " + error["error"].data;
+        this.showPopup("Login error",error_string);
       }); 
 
       // this.http.post(url, body, headers)
