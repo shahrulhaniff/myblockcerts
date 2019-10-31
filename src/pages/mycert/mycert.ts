@@ -29,6 +29,7 @@ export class MycertPage {
   public pk_value    : any;
   public buttonClaim: boolean = false;
   public buttonPaste: boolean = false;
+  public token : any ;
 
   loading: Loading;
   createSuccess = false;
@@ -155,4 +156,88 @@ export class MycertPage {
           }); 
         }
     //ENDGAME_API
+
+    //SUBMIT FORM TO CLAIM
+    saveEntry() : void
+   {
+      this.storage.get('tokenz').then((tokenz) => { //buka storage
+        this.token = tokenz;
+        console.log("TOKEN DLM MYCERTPAGE", this.token);
+        let url       : any = this.baseURI + 'api/v1/certificates';
+    
+            let headers = new HttpHeaders({
+              'Authorization': this.token , 
+              'Content-Type': 'application/x-www-form-urlencoded'
+            });
+            let options = {
+              headers: headers
+            }
+    
+        console.log(headers)
+        this.http.get(url, options)
+            .subscribe((data : any) => 
+            {
+              console.log("MAKLUMAT MYCERTPAGE:",data);
+              this.items = data;
+              let res1 = data["data"];
+              let res2 = res1["data"];
+              let res3 = res2["0"];
+              let res4 = res3["createdBy"];
+              let res5 = res3["fileId"];
+              //console.log("RES",res5[0]);
+           
+           let fileId        = res5[0];
+           //let issueraddress = res3["accountID"];
+           //let privateKey    = res4["privateKey"];
+           let issuerAddress    = res4["ethAddress"];
+           let cname         = res3["certificationName"];
+           let _id           = res3["_id"]; 
+           let authorization = tokenz;
+           console.log("cDAPAT DOH [Authorization]a.k.a[TOKEN]"   ,authorization,"==",tokenz);
+           console.log("cDAPAT certificationName"                 ,cname);
+           console.log("cDAPAT certificateId"                     ,_id);
+           console.log("cDAPAT fileId"                            ,fileId);
+           console.log("cDAPAT issuerAddress"                     ,issuerAddress);
+
+              let privateKey   : string = this.form.controls["pk"].value;
+              //xyz : string = this.xydfffffffffffffffffffz;
+              this.createEntry(authorization,fileId,issuerAddress,privateKey);
+            },
+        error => {
+          console.log("Error certificationName!");
+          console.log(error);
+        });
+      }); /* tutup storage kod_pengguna*/ 
+   }
+   
+   createEntry( authorization : string, 
+                fileId        : string, 
+                issuerAddress : string,
+                privateKey    : string
+              ) : void { //start
+                let url       : any = this.baseURI+'api/v1/contract/claim/certificate',
+                body 	    : any	= {'fileId': fileId, 'issuerAddress': issuerAddress, 'privateKey': privateKey},
+                headers 	: any	= new HttpHeaders({ 'authorization': authorization ,'Content-Type': 'application/x-www-form-urlencoded' }),
+                data      : Observable<any> = this.http.get(url);
+            this.http.put(url, body, headers)
+                .subscribe((data : any) => 
+                {
+                  console.log(data);
+                  this.items = data;
+                  this.showLoading();
+                  this.showPopup("Success","Certificate Claimed");
+                  this.loading.dismiss();
+                  this.navCtrl.setRoot(StartPage);
+                },
+                error => {
+                  console.log("Error!");
+                  console.log(error);
+                  this.showLoading();
+                  this.showPopup("Error 401","Unauthorized access");
+                  this.loading.dismiss();
+                }); 
+   } //end
+    //SUBMIT END
+
+
 }

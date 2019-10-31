@@ -126,7 +126,7 @@ export class StartPage {
         .subscribe((data : any) => 
         {
           //console.log("MAKLUMAT:",data);
-          this.itemsPK = data;
+           this.itemsPK = data;
            let PK = data["data"];
            //console.log("DAPAT PK RECIPIENT",PK);
            let privateKey    = PK;

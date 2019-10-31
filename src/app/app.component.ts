@@ -47,13 +47,12 @@ export class MyApp {
       else {this.rootPage=StartPage; }
     });//close storage
 
-
       this.pages = [
-        { title: 'Certificates', component: StartPage , Icon :'ios-ribbon-outline'},
+        { title: 'Certificates', component: StartPage , Icon :'ios-ribbon'},
         { title: 'Blockchain Info', component: PrivatekeyPage , Icon :'key'},
         { title: 'Profile', component: ProfilePage , Icon :'person'},
         { title: 'Scan QR', component: 'ScanPage', Icon :'md-qr-scanner' },
-        { title: 'Disclaimer', component: PenafianPage, Icon :'md-checkmark-circle-outline' },
+        { title: 'Disclaimer', component: PenafianPage, Icon :'md-checkmark-circle' },
         { title: 'Contact Us', component: HubungiPage, Icon :'call' }
         //{ title: 'Sign Out', component: ListPage, Icon :'log-out' }
       ];

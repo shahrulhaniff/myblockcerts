@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, ViewController, App } from 'ionic-
 import { StartPage } from '../start/start';
 import { DocumentViewer, DocumentViewerOptions } from '@ionic-native/document-viewer';
 import { DomSanitizer} from '@angular/platform-browser';
+import { GlobalProvider } from "../../providers/global/global";
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -12,15 +14,23 @@ import { DomSanitizer} from '@angular/platform-browser';
 export class PfdmodalPage {
   pdfLink:any;
   displayData: any = {};
+  private baseURI : string  = this.global.mysite;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public viewCtrl: ViewController,
-              public appCtrl: App
+              public global: GlobalProvider,
+              public appCtrl: App,
+              public storage  : Storage
               ,private document: DocumentViewer
               ,private sanitizer: DomSanitizer
               ) {
-                this.pdfLink = this.sanitizer.bypassSecurityTrustResourceUrl('http://18.136.211.207:4400/api/v1/view/certificate?certificateId=5dada31e1ee2f866423900ff&fileId=5dada3271ee2f8664239011a');
+                this.storage.get('certificateId').then((certificateId) => {
+                  this.storage.get('fileId').then((fileId) => {
+                    console.log('fileId', fileId)
+                    this.pdfLink = this.sanitizer.bypassSecurityTrustResourceUrl(this.baseURI+'api/v1/view/certificate?certificateId='+certificateId+'&fileId='+fileId);
+                  });
+                });
               }
 
   ionViewDidLoad() {

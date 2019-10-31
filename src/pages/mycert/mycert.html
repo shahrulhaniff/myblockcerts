@@ -24,28 +24,23 @@
 </div>
 <ion-card class="card3">
 <div *ngIf="isClaimed==false">
-<ion-item>
-<form [formGroup]="form" (ngSubmit)="popup()" #loginForm="ngForm">
-      <ion-row>
-        <ion-col>
-          <ion-list inset>
-            <ion-item>
-              <ion-input type="text" placeholder="Paste your private key here" formControlName="pk" value="{{pk_value}}" required></ion-input>
-            </ion-item>
-          </ion-list>
-        </ion-col>
-      </ion-row>
-      
-      <ion-row>
-          <ion-col class="signup-col">
-            <button *ngIf="buttonClaim==true" ion-button class="submit-btn" full type="submit" [disabled]="!loginForm.form.valid">CLAIM</button>
-          </ion-col>
-      </ion-row>
+
+    <ion-item class="header">
+        <ion-icon name="ios-bookmarks"></ion-icon> &nbsp;CLAIM YOUR CERTIFICATE
+      </ion-item>
+<form [formGroup]="form" (ngSubmit)="saveEntry()" #loginForm="ngForm">
+    <ion-item class="f_input">
+        <!--<ion-input  type="text" placeholder="Paste your private key here" formControlName="pk" value="{{pk_value}}" required></ion-input>-->
+        <ion-textarea rows="3" placeholder="Paste your private key here" formControlName="pk" value="{{pk_value}}" required></ion-textarea>
+  </ion-item>
+      <ion-item *ngIf="buttonClaim==true" type="submit" class="no_line">
+          <!--<ion-icon name="md-list-box"></ion-icon> &nbsp; CLAIM-->
+        <button ion-button class="submit-btn" type="submit" [disabled]="!loginForm.form.valid"><ion-icon name="md-list-box"></ion-icon>&nbsp; CLAIM</button>
+      </ion-item>
     </form>  
     <!--<button *ngIf="buttonPaste==true" (click)="paste()" ion-button full>PASTE</button>
     <button *ngIf="((buttonPaste==false)&&(buttonClaim==false))" (click)="gotopk()" ion-button full>GET PRIVATE KEY</button>
     -->
-  </ion-item>
   
     <ion-item *ngIf="buttonPaste==true" (click)="paste()" class="top_line1" color="card2">
       <ion-icon name="md-list-box"></ion-icon> &nbsp;PASTE
