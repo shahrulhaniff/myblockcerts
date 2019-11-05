@@ -37,8 +37,9 @@ import { DocumentViewer } from '@ionic-native/document-viewer';
 //import {  FileTransfer,  FileTransferObject  } from '@ionic-native/file-transfer';
 //import { Clipboard } from '@ionic-native/clipboard';
 //import { PdfViewerPage } from '../pages/pdf-viewer/pdf-viewer';
-//import { PdfViewerModule } from 'ng2-pdf-viewer';
 //import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
+//import { PdfViewerModule } from 'ng2-pdf-viewer';
+//import { SimplePdfViewerModule } from 'simple-pdf-viewer';
 
 @NgModule({
   declarations: [
@@ -61,8 +62,8 @@ import { DocumentViewer } from '@ionic-native/document-viewer';
     //PdfViewerPage,
     PfdmodalPage,
     ParallaxHeader
-    
-    
+
+  
   ],
   imports: [
     BrowserModule,
@@ -70,9 +71,9 @@ import { DocumentViewer } from '@ionic-native/document-viewer';
     HttpClientModule,
     IonicStorageModule.forRoot(),
     NgxQRCodeModule
-    //,DocumentViewer
     //,PdfJsViewerModule
-    //,PdfViewerModule
+    //,PdfViewerModule //SEPATUTNYA SINI
+    //,SimplePdfViewerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

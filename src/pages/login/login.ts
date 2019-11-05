@@ -7,6 +7,7 @@ import { GlobalProvider } from "../../providers/global/global";
 import { StartPage } from '../start/start';
 import { Observable } from "./../../../node_modules/rxjs/Observable";
 import 'rxjs/add/operator/map';
+import { MycertPage } from '../mycert/mycert';
 //import { map } from 'rxjs/operators';
 
 @IonicPage()
@@ -197,6 +198,8 @@ export class LoginPage {
  }
 
 
-
+ certInfo(){
+  this.navCtrl.push(MycertPage);
+}
 
 }

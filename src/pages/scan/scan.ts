@@ -37,11 +37,15 @@ export class ScanPage {
     
    }
 
+   /*
   ionViewDidLoad() {
     console.log('ionViewDidLoad ScanPage');
-  }
+  } */
 
-  ionViewWillEnter(){this.scanCode();};
+  ionViewWillEnter(){
+    this.scanCode();
+    //this.openWebpage("http://18.136.211.207:4400/api/v1/view/certificate?certificateId=5dbaeafa80afea153bb4daf3&fileId=5dbaeb0280afea153bb4db07");
+  };
 
   //public list : Array<any> = [];
   scanCode() {
