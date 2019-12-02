@@ -90,7 +90,7 @@ export class LoginPage {
         console.log(error["error"].message);
         let error_string = "status: "+ error["error"].status + " message: " + error["error"].message + " data: " + error["error"].data;
         this.showPopup("Login error",error_string);
-      }); 
+      });
 
       // this.http.post(url, body, headers)
       // .subscribe((data : any) => 

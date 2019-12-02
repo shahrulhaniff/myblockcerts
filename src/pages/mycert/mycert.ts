@@ -172,7 +172,7 @@ export class MycertPage {
             let options = {
               headers: headers
             }
-    
+
         console.log(headers)
         this.http.get(url, options)
             .subscribe((data : any) => 
@@ -193,14 +193,17 @@ export class MycertPage {
            let cname         = res3["certificationName"];
            let _id           = res3["_id"]; 
            let authorization = tokenz;
-           console.log("cDAPAT DOH [Authorization]a.k.a[TOKEN]"   ,authorization,"==",tokenz);
-           console.log("cDAPAT certificationName"                 ,cname);
-           console.log("cDAPAT certificateId"                     ,_id);
-           console.log("cDAPAT fileId"                            ,fileId);
-           console.log("cDAPAT issuerAddress"                     ,issuerAddress);
+           //console.log("cDAPAT [Authorization]a.k.a[TOKEN]"   ,authorization,"==",tokenz);console.log("cDAPAT certificationName",cname);console.log("cDAPAT certificateId",_id);console.log("cDAPAT fileId",fileId);console.log("cDAPAT issuerAddress",issuerAddress);
+           let privateKey   : string = this.form.controls["pk"].value;
+           //PUT_TO_API_CLAIM_CERTIFICATE
+           console.log("PUT_TO_API_CLAIM_CERTIFICATE!");
+           console.log("certificationName["+cname+"]");
+           console.log("authorization["+authorization+"]");
+           console.log("fileId["+fileId+"]");
+           console.log("issuerAddress["+issuerAddress+"]");
+           console.log("privateKey["+privateKey+"]");
+           console.log("certificateId["+_id+"]");
 
-              let privateKey   : string = this.form.controls["pk"].value;
-              //xyz : string = this.xydfffffffffffffffffffz;
               this.createEntry(authorization,fileId,issuerAddress,privateKey);
             },
         error => {
@@ -215,10 +218,10 @@ export class MycertPage {
                 issuerAddress : string,
                 privateKey    : string
               ) : void { //start
-                let url       : any = this.baseURI+'api/v1/contract/claim/certificate',
+                let url   : any = this.baseURI+'api/v1/contract/claim/certificate',
                 body 	    : any	= {'fileId': fileId, 'issuerAddress': issuerAddress, 'privateKey': privateKey},
-                headers 	: any	= new HttpHeaders({ 'authorization': authorization ,'Content-Type': 'application/x-www-form-urlencoded' }),
-                data      : Observable<any> = this.http.get(url);
+                headers 	: any	= new HttpHeaders({ 'authorization': authorization ,'Content-Type': 'application/x-www-form-urlencoded' });
+                //data      : Observable<any> = this.http.get(url);
             this.http.put(url, body, headers)
                 .subscribe((data : any) => 
                 {
@@ -231,13 +234,22 @@ export class MycertPage {
                 },
                 error => {
                   console.log("Error!");
-                  console.log(error);
                   this.showLoading();
-                  this.showPopup("Error 401","Unauthorized access");
-                  this.loading.dismiss();
-                }); 
+        //ERR_FRM_API
+        console.log(error);
+        console.log(error["message"]);
+        console.log(error["statusText"]);
+        let error_title = error["status"]+" "+error["statusText"];
+        let error_string = "<br><b>status:</b>"+ error["status"]
+                          +"<br><br><b>statusText:</b> " + error["statusText"] 
+                          +"<br><br><b>message:</b> " + error["message"] 
+                          +"<br><br><b>name:</b> " + error["name"]
+                          +"<br><br><b>ok:</b> " + error["ok"]
+                          +"<br><br><b>url:</b> " + error["url"]
+                          ;
+        this.showPopup(error_title,error_string);
+        this.loading.dismiss();
+        });
    } //end
     //SUBMIT END
-
-
 }
