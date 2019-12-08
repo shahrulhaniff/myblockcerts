@@ -4,7 +4,8 @@ import { StartPage } from '../start/start';
 import { Storage } from '@ionic/storage';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { GlobalProvider } from "../../providers/global/global";
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { Http, Headers, RequestOptions } from '@angular/http'; //ROTI
+import { HttpClient,HttpHeaders, HttpParams  } from '@angular/common/http';
 import { Observable } from "./../../../node_modules/rxjs/Observable";
 import { Modal, ModalController } from 'ionic-angular';
 import { PfdmodalPage } from '../pfdmodal/pfdmodal';
@@ -122,7 +123,7 @@ export class MycertPage {
 
   //public pdfSrc : any = "http://18.136.211.207:4400/api/v1/view/certificate?certificateId=5dada31e1ee2f866423900ff&fileId=5dada3271ee2f8664239011a";
   //public pdfSrc : any = "../../assets/documents/cert.pdf";
-  pdfSrc = "https://drive.google.com/open?id=1eB5QBlK32ANUbzNrWyAu1SXqnxk0ORIw";
+  //pdfSrc = "https://drive.google.com/open?id=1eB5QBlK32ANUbzNrWyAu1SXqnxk0ORIw";
   getView(){
     let modal: Modal = this.modalCtrl.create(PfdmodalPage, {
       displayData:{
@@ -218,38 +219,56 @@ export class MycertPage {
                 issuerAddress : string,
                 privateKey    : string
               ) : void { //start
-                let url   : any = this.baseURI+'api/v1/contract/claim/certificate',
-                body 	    : any	= {'fileId': fileId, 'issuerAddress': issuerAddress, 'privateKey': privateKey},
-                headers 	: any	= new HttpHeaders({ 'authorization': authorization ,'Content-Type': 'application/x-www-form-urlencoded' });
+                let url       : any = this.baseURI+'api/v1/contract/claim/certificate';
+                let body 	    : any	= {'fileId': fileId, 'issuerAddress': issuerAddress, 'privateKey': privateKey};
+                //[CARA ASAL]
+                let headers = new HttpHeaders({
+                  'authorization': authorization,
+                  'Content-Type': 'application/json' });
+                //let options 	: any	=  new HttpHeaders({ 'authorization': authorization ,'Content-Type': 'application/x-www-form-urlencoded' });
+
+                //[CARA 1]
+                //let params  = new HttpParams().append('authorization', authorization);
+                //let headers : any	= new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
+                //let options 	: any	= { 'authorization': params,'Content-Type': headers,  };
+
+                //[CARA 2]
+                // let headers = new Headers();
+                // headers.append('Content-Type', 'application/json');
+                // headers.append('authorization', authorization);
+                //let options : any = new RequestOptions({ headers: headers });
+                //let options 	: any	= { 'authorization': authorization,headers: headers  };
+                // let options : any = new RequestOptions({headers: headers  });
+                
+                /*________________________________________________*/
                 //data      : Observable<any> = this.http.get(url);
-            this.http.put(url, body, headers)
-                .subscribe((data : any) => 
+                this.http.put(url, body, {headers})/*options @ headers*/
+                .subscribe((response : any) => 
                 {
-                  console.log(data);
-                  this.items = data;
+                  console.log(response);
                   this.showLoading();
-                  this.showPopup("Success","Certificate Claimed");
+                  this.showPopup(response["message"],"Certificate has been claimed successfully");
                   this.loading.dismiss();
                   this.navCtrl.setRoot(StartPage);
                 },
                 error => {
                   console.log("Error!");
                   this.showLoading();
-        //ERR_FRM_API
-        console.log(error);
-        console.log(error["message"]);
-        console.log(error["statusText"]);
-        let error_title = error["status"]+" "+error["statusText"];
-        let error_string = "<br><b>status:</b>"+ error["status"]
-                          +"<br><br><b>statusText:</b> " + error["statusText"] 
-                          +"<br><br><b>message:</b> " + error["message"] 
-                          +"<br><br><b>name:</b> " + error["name"]
-                          +"<br><br><b>ok:</b> " + error["ok"]
-                          +"<br><br><b>url:</b> " + error["url"]
-                          ;
-        this.showPopup(error_title,error_string);
-        this.loading.dismiss();
-        });
+                  //ERR_FRM_API
+                  console.log(error);
+                  console.log(error["message"]);
+                  console.log(error["statusText"]);
+                  let error_title = error["status"]+" "+error["statusText"];
+                  let error_string = "<br><b>status:</b>"+ error["status"]
+                                    +"<br><br><b>statusText:</b> " + error["statusText"] 
+                                    +"<br><br><b>message:</b> " + error["message"] 
+                                    +"<br><br><b>name:</b> " + error["name"]
+                                    +"<br><br><b>ok:</b> " + error["ok"]
+                                    +"<br><br><b>url:</b> " + error["url"]
+                                    ;
+                  this.showPopup(error_title,error_string);
+                  this.loading.dismiss();
+                  });
    } //end
     //SUBMIT END
 }

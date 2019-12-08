@@ -1,0 +1,38 @@
+<ion-header no-border>
+  <ion-navbar  transparent no-border>
+      <button ion-button menuToggle>
+          <ion-icon name="menu" color="dark"></ion-icon>
+        </button>
+        <ion-title></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg">
+  <div padding>
+
+  </div>
+
+  <ion-card class="card3">
+    <div>
+    
+        <ion-item class="header">
+            <ion-icon name="ios-bookmarks"></ion-icon> &nbsp;SHARE QR
+          </ion-item>
+    <form [formGroup]="form" (ngSubmit)="shareEntry()" #loginForm="ngForm">
+        <ion-item class="f_input">
+            <ion-textarea rows="3" placeholder="email to share" value="{{cname}}" formControlName="emel" required></ion-textarea>
+      </ion-item>
+          <ion-item *ngIf="buttonClaim==true" type="submit" class="no_line">
+              <!--<ion-icon name="md-list-box"></ion-icon> &nbsp; CLAIM-->
+            <button ion-button class="submit-btn" type="submit" [disabled]="!loginForm.form.valid"><ion-icon name="share"></ion-icon>&nbsp; CLAIM</button>
+          </ion-item>
+        </form>  
+        
+      
+        <ion-item (click)="shareEntry()" class="top_line1" color="card2">
+          <ion-icon name="share"></ion-icon> &nbsp;SHARE
+        </ion-item>
+    
+    </div>
+    </ion-card>
+</ion-content>

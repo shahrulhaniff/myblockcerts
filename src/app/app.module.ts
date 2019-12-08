@@ -34,6 +34,7 @@ import { PfdmodalPage } from '../pages/pfdmodal/pfdmodal';
 import { File } from '@ionic-native/file/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
 import { DocumentViewer } from '@ionic-native/document-viewer';
+import { SharecertPage } from '../pages/sharecert/sharecert';
 //import {  FileTransfer,  FileTransferObject  } from '@ionic-native/file-transfer';
 //import { Clipboard } from '@ionic-native/clipboard';
 //import { PdfViewerPage } from '../pages/pdf-viewer/pdf-viewer';
@@ -61,6 +62,7 @@ import { DocumentViewer } from '@ionic-native/document-viewer';
     PrivatekeyPage,
     //PdfViewerPage,
     PfdmodalPage,
+    SharecertPage,
     ParallaxHeader
 
   
@@ -89,7 +91,8 @@ import { DocumentViewer } from '@ionic-native/document-viewer';
     MycertPage,
     PenafianPage,
     PrivatekeyPage,
-    PfdmodalPage
+    PfdmodalPage,
+    SharecertPage
     
   ],
   providers: [

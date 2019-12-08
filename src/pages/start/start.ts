@@ -4,6 +4,7 @@ import { MycertPage } from '../mycert/mycert';
 import { GlobalProvider } from "../../providers/global/global";
 import { Storage } from '@ionic/storage';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { SharecertPage } from '../sharecert/sharecert';
 //import { Observable } from "./../../../node_modules/rxjs/Observable";
 
 
@@ -41,6 +42,7 @@ export class StartPage {
     this.c_listing();
   }
 
+
   load() : void
   { 
     this.storage.get('firstnamez').then((firstnamez) => { this.fn = firstnamez; });
@@ -53,6 +55,9 @@ export class StartPage {
   }
   claim(params : any){
     this.navCtrl.push(MycertPage, params);
+  }
+  share(params : any){
+    this.navCtrl.push(SharecertPage, params);
   }
 
   //AFIQ
@@ -89,13 +94,15 @@ export class StartPage {
            let res4 = res3["createdBy"];
            let res5 = res3["fileId"];
            //console.log("RES",res5[0]);
+           let res6 = res3["issuedBy"];
+           console.log("SHAE",res3["_id"]);
            
            let fileId        = res5[1];
            //let issueraddress = res3["accountID"];
            let privateKey    = res4["privateKey"];
            let ethAddress    = res4["ethAddress"];
            let cname         = res3["certificationName"];
-           let _id           = res3["_id"]; 
+           let  _id         = res3["_id"]; 
 
            this.storage.set('certificateId', _id);
            this.storage.set('fileId'       , fileId);
