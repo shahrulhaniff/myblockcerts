@@ -222,9 +222,7 @@ export class MycertPage {
                 let url       : any = this.baseURI+'api/v1/contract/claim/certificate';
                 let body 	    : any	= {'fileId': fileId, 'issuerAddress': issuerAddress, 'privateKey': privateKey};
                 //[CARA ASAL]
-                let headers = new HttpHeaders({
-                  'authorization': authorization,
-                  'Content-Type': 'application/json' });
+                let headers = new HttpHeaders({'authorization': authorization,'Content-Type': 'application/json' });
                 //let options 	: any	=  new HttpHeaders({ 'authorization': authorization ,'Content-Type': 'application/x-www-form-urlencoded' });
 
                 //[CARA 1]

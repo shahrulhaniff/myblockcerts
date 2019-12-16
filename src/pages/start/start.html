@@ -35,7 +35,7 @@
         <button class="smallnone">Certificate Claim :</button>
         <button class="smallr" *ngIf="isClaimed == false">No</button>
         <button class="smallg" *ngIf="isClaimed == true">Yes</button>
-        <!--<button class="smallg" *ngIf="isClaimed == true" (click)="share()">Share</button>-->
+        <button class="smallg" *ngIf="isClaimed == true" (click)="share()">Share</button>
       </ion-item>
       <ion-item *ngIf="isClaimed == false" (click)="claim()" class="top_lineB" color="card2">
             <ion-icon name="md-list-box"></ion-icon> &nbsp; CLAIM
