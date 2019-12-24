@@ -80,6 +80,7 @@ export class LoginPage {
         this.storage.set('lastnamez', this.items["data"].lastName);
         this.storage.set('tokenz', this.items["data"].token);
         this.storage.set('user', usr);
+        this.storage.set('pwd', pwd);
         console.log("SIMPAN SESSION LOGIN: ",usr);
         //this.showPopup("Login Successful",postMessage);
         this.navCtrl.setRoot(StartPage);

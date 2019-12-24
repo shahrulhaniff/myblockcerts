@@ -20,7 +20,7 @@
           </ion-item>
     <form [formGroup]="form" (ngSubmit)="shareEntry()" #loginForm="ngForm">
         <ion-item class="f_input">
-          <ion-input placeholder="email to share" formControlName="emel" value="shahrul941013@gmail.com" required clearInput></ion-input>
+          <ion-input placeholder="email to share" formControlName="emel" required clearInput></ion-input>
           <!--<ion-textarea rows="3" placeholder="email to share" value="{{cname}}" formControlName="emel" required>shahrul941013@gmail.com</ion-textarea>-->
       </ion-item>
           <ion-item *ngIf="buttonClaim==true" type="submit" class="no_line">

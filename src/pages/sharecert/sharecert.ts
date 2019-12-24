@@ -75,10 +75,13 @@ export class SharecertPage {
 
   shareEntry() : void { //start sharing
 
+    //open session
+    this.storage.get('user').then((usr) => {
+    this.storage.get('pwd').then((pwd) => {
 
     //get token with userbane and pass - to refresh need to relogin ROTI TEST DUMMY
-    let usr     : string    = "recipient1@yopmail.com";
-    let pwd     : string    = "Test@123";
+    //let usr     : string    = "recipient1@yopmail.com";
+    //let pwd     : string    = "Test@123";
     let url2     : any = this.baseURI+'api/v1/users/login';
     let body2 	  : any	= {'email': usr, 'password': pwd};
     this.http.post(url2, body2).subscribe((data : any) => {// open userpass refresh login
@@ -155,6 +158,9 @@ export class SharecertPage {
     },error => { console.log("Error urlcert!"); });
     //tutup userpass refresh login
     },error => { let error_string = "status: "+ error["error"].status + " message: " + error["error"].message + " data: " + error["error"].data; this.showPopup("Login Refresh token error",error_string);});
-} //end
+
+  });});//close session
+
+  } //end
 
 }
