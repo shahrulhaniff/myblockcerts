@@ -4,8 +4,6 @@ import { GlobalProvider } from "../../providers/global/global";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from "./../../../node_modules/rxjs/Observable";
 import { Storage } from '@ionic/storage';
-import { EditprofilePage } from '../editprofile/editprofile';
-import { ChangepassPage } from '../changepass/changepass';
 import { ListPage } from '../list/list';
 import { StartPage } from '../start/start';
 
@@ -22,11 +20,11 @@ export class ProfilePage {
   public ln : any ;
   public token : any ;
   public usr : any ;
-  
+
   public items : Array<any> = [];
   public profiles : Array<any> = [];
-  private baseURI : string  = this.global.mysite; 
- 
+  private baseURI : string  = this.global.mysite;
+
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -45,13 +43,13 @@ export class ProfilePage {
   }
 
   load2() : void
-  { 
-    this.storage.get('firstnamez').then((firstnamez) => { this.fn = firstnamez; }); 
+  {
+    this.storage.get('firstnamez').then((firstnamez) => { this.fn = firstnamez; });
     this.storage.get('lastnamez').then((lastnamez) => { this.ln = lastnamez; });
     this.storage.get('tokenz').then((tokenz) => { this.token = tokenz; });
     this.storage.get('user').then((usr) => { this.usr = usr; });
   }
-  
+
   Certificate_Claim() : void
   {
       this.storage.get('tokenz').then((tokenz) => {
@@ -67,25 +65,25 @@ export class ProfilePage {
       error => {
         console.log("Error!");
         console.log(error);
-      }); 
+      });
    }); //close storage
   }
  /* load() : void
   {
-    this.storage.get('kod_pengguna').then((kod_pengguna) => { 
+    this.storage.get('kod_pengguna').then((kod_pengguna) => {
     this.kodpengguna = kod_pengguna; console.log("session kod pengguna dekat profile",kod_pengguna);
     }); //close storage
 
      this.storage.get('user').then((user) => {
 
      let    url : any = this.baseURI+'retrieve_profile.php?id='+user+'&kodpengguna='+this.kodpengguna;
-            
+
      this.http.get(url).subscribe((data : any) =>
      {
         console.dir(data);
         this.profiles = data;
-        
-        
+
+
      },
      (error : any) =>
      {
@@ -95,17 +93,10 @@ export class ProfilePage {
    }); //close storage
   } */
 
-  editProfile(params : any){
-    this.navCtrl.push(EditprofilePage, params);
-  }
-
-  changePass(params : any){
-    this.navCtrl.push(ChangepassPage, params);
-  }
   certinfo(params : any){
     this.navCtrl.push(StartPage, params);
   }
-  
+
   scan(): void {
     this.navCtrl.push('ScanPage');
  }
@@ -129,7 +120,7 @@ const httpOptions = {
       options 	: any	= { "name" : this.hantar};
 
   this.http.post(url, JSON.stringify(options), headers)
-      .subscribe((record : any) => 
+      .subscribe((record : any) =>
       {
         console.log(record);
       },

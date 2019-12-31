@@ -10,15 +10,7 @@
 <ion-content class="bg">
 <div padding>
 </div>
-    <!--<div padding *ngFor="let profile of profiles">-->
-      <!--<ion-chip color="theme">
-        <ion-avatar item-start>
-          <ion-text-avatar>></ion-text-avatar>
-        </ion-avatar>
-        <ion-label style="font-weight: bold" >
-          Profile
-        </ion-label>
-      </ion-chip> -->
+
         <ion-card class="card3">
           <ion-list>
             <ion-item class="header">
@@ -31,10 +23,10 @@
                   <h1 text-wrap>{{fn}} {{ln}}</h1>
                   <h3>{{usr}}</h3>
               </ion-item>
-                 
+
 <!--
             <ion-item>
-              
+
               <ion-label>
                 <p class="bold">Highest Certificate</p>
                 <h3>Bachelor in Science Computer Software Development with Honor</h3>
@@ -60,7 +52,7 @@
             </ion-item>
           -->
           </ion-list>
-          
+
         </ion-card>
 
       <!--<ion-card class="card3">
@@ -69,7 +61,7 @@
             <ion-col class="border2" (click)="scan()" align-center padding col-6><ion-icon name="ios-camera-outline" class="iconsize"></ion-icon><br>QR-Scanner</ion-col>
             <ion-col class="border2" (click)="editProfile({ record: profile })" align-center padding col-6><ion-icon name="ios-construct-outline" class="iconsize"></ion-icon><br>Update</ion-col>
             <ion-col class="border2" (click)="logout()" align-center padding col-6><ion-icon name="ios-log-out-outline" class="iconsize"></ion-icon><br>Logout</ion-col>
-            <ion-col (click)="changePass({ record: profile })" align-center padding col-6><ion-icon name="ios-key-outline" class="iconsize"></ion-icon><br>Change Password</ion-col> 
+            <ion-col (click)="changePass({ record: profile })" align-center padding col-6><ion-icon name="ios-key-outline" class="iconsize"></ion-icon><br>Change Password</ion-col>
       </ion-row>
     </ion-card>-->
 
@@ -77,4 +69,3 @@
 
     <!--</div>-->
   </ion-content>
-      

@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
-import { TextAvatarDirective } from './text-avatar/text-avatar';
 import { ParallaxHeader } from './parallax-header/parallax-header';
 @NgModule({
-	declarations: [TextAvatarDirective,
+	declarations: [
     ParallaxHeader],
 	imports: [],
-	exports: [TextAvatarDirective,
+	exports: [
     ParallaxHeader]
 })
 export class DirectivesModule {}

@@ -9,23 +9,16 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
-import { TextAvatarDirective } from '../directives/text-avatar/text-avatar';
 //import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { Toast } from '@ionic-native/toast/ngx';
 import { GlobalProvider } from '../providers/global/global';
-import { SearchPipe } from '../pipes/search/search';
-import { SortPipe } from '../pipes/sort/sort';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { ProfilePage } from '../pages/profile/profile';
-import { EditprofilePage } from '../pages/editprofile/editprofile';
-import { ChangepassPage } from '../pages/changepass/changepass';
-import { IonTextAvatar } from 'ionic-text-avatar';
 
-import { ParallaxHeader } from '../directives/parallax-header/parallax-header';
-import { HubungiPage } from '../pages/hubungi/hubungi';
 import { MycertPage } from '../pages/mycert/mycert';
+import { HubungiPage } from '../pages/hubungi/hubungi';
 import { PenafianPage } from '../pages/penafian/penafian';
 import { StartPage } from '../pages/start/start';
 import { PrivatekeyPage } from '../pages/privatekey/privatekey';
@@ -48,13 +41,7 @@ import { SharecertPage } from '../pages/sharecert/sharecert';
     HomePage,
     ListPage,
     LoginPage,
-    TextAvatarDirective,
-    SearchPipe,
-    SortPipe,
     ProfilePage,
-    EditprofilePage,
-    ChangepassPage,
-    IonTextAvatar,
     HubungiPage,
     StartPage,
     MycertPage,
@@ -62,10 +49,10 @@ import { SharecertPage } from '../pages/sharecert/sharecert';
     PrivatekeyPage,
     //PdfViewerPage,
     PfdmodalPage,
-    SharecertPage,
-    ParallaxHeader
+    SharecertPage
+    //,ParallaxHeader
 
-  
+
   ],
   imports: [
     BrowserModule,
@@ -84,16 +71,14 @@ import { SharecertPage } from '../pages/sharecert/sharecert';
     ListPage,
     LoginPage,
     ProfilePage,
-    EditprofilePage,
-    ChangepassPage,
-    HubungiPage,
     StartPage,
     MycertPage,
     PenafianPage,
     PrivatekeyPage,
     PfdmodalPage,
+    HubungiPage,
     SharecertPage
-    
+
   ],
   providers: [
     StatusBar,
@@ -105,11 +90,11 @@ import { SharecertPage } from '../pages/sharecert/sharecert';
     InAppBrowser,
     File,
     FileOpener
-    //,FileTransfer  
+    //,FileTransfer
     //,FileTransferObject
     //,Clipboard
     ,DocumentViewer
-    
+
 
   ]
 })
